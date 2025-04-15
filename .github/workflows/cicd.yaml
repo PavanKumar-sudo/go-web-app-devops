@@ -19,7 +19,7 @@ jobs:
     - name: Set up Go 1.21.10
       uses: actions/setup-go@v2
       with:
-        go-version: 1.21.10
+        go-version: 1.22.2
 
     - name: Build
       run: go build -o go-web-app
@@ -38,7 +38,10 @@ jobs:
       uses: golangci/golangci-lint-action@v6
       with:
         version: v1.56.2
-        args: ./   # ✅ Fix: restrict linting to current project only
+        args: ./...
+    
+    - name: Debugging golangci-lint
+      run: golangci-lint run --verbose  # Add verbose output for debugging
 
   push:
     runs-on: ubuntu-latest
