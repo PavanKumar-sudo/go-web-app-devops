@@ -1,7 +1,7 @@
 # --------------------------------------------------
 # Build Stage - Compile Go application
 # --------------------------------------------------
-FROM golang:1.22.5 as base
+FROM golang:1.22.5 AS base
 
 # Set working directory
 WORKDIR /app
