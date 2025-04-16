@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'helm/**'
+      - 'k8s/**'
+      - 'README.md'
 
 concurrency:
   group: ci-${{ github.ref }}
-  cancel-in-progress: false  # ✅ prevents auto-cancel
+  cancel-in-progress: true  # ✅ prevents auto-cancel
 
 jobs:
 
